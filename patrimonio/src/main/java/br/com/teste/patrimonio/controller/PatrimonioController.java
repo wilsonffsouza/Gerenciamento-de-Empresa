@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.teste.patrimonio.controller.helpers.PatrimonioHelpers;
 import br.com.teste.patrimonio.exception.PatrimonioNotFoundException;
-import br.com.teste.patrimonio.model.entities.Patrimonio;
+import br.com.teste.patrimonio.model.Patrimonio;
 import br.com.teste.patrimonio.resource.model.PatrimonioResource;
+import br.com.teste.patrimonio.service.PatrimonioService;
 
 @RestController
 @RequestMapping(value = "/api")
@@ -22,7 +22,7 @@ public class PatrimonioController {
 	
 	
 	@Autowired
-	private PatrimonioHelpers helpers;
+	private PatrimonioService helpers;
 
 	@PostMapping(path = "/patrimonio/save")
 	public void novoPatrimonio(@RequestBody PatrimonioResource patrimonio) {

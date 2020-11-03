@@ -13,11 +13,10 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import br.com.teste.patrimonio.controller.helpers.PatrimonioHelpers;
 import br.com.teste.patrimonio.exception.PatrimonioNotFoundException;
 import br.com.teste.patrimonio.exception.PatrimonioResourceException;
-import br.com.teste.patrimonio.model.entities.Patrimonio;
-import br.com.teste.patrimonio.model.repositories.PatrimonioRepository;
+import br.com.teste.patrimonio.model.Patrimonio;
+import br.com.teste.patrimonio.repository.PatrimonioRepository;
 import br.com.teste.patrimonio.resource.model.PatrimonioResource;
 
 @SpringBootTest
@@ -27,7 +26,7 @@ import br.com.teste.patrimonio.resource.model.PatrimonioResource;
 public class PatrimonioTeste {
 
 	@Autowired
-	private PatrimonioHelpers helpers;
+	private PatrimonioService helpers;
 	
 	@Autowired
 	private PatrimonioRepository patrimonioRepository;

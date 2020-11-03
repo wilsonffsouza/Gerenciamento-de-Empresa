@@ -13,11 +13,10 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import br.com.teste.patrimonio.controller.helpers.MarcaHelpers;
 import br.com.teste.patrimonio.exception.MarcaNotFoundException;
 import br.com.teste.patrimonio.exception.MarcaResourceException;
-import br.com.teste.patrimonio.model.entities.Marca;
-import br.com.teste.patrimonio.model.repositories.MarcaRepository;
+import br.com.teste.patrimonio.model.Marca;
+import br.com.teste.patrimonio.repository.MarcaRepository;
 import br.com.teste.patrimonio.resource.model.MarcaResource;
 
 @SpringBootTest
@@ -27,7 +26,7 @@ import br.com.teste.patrimonio.resource.model.MarcaResource;
 public class MarcaTeste {
 
 	@Autowired
-	private MarcaHelpers helpers;	
+	private MarcaService helpers;	
 
 	@Autowired
 	private MarcaRepository marcaRepository;

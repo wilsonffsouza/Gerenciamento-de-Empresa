@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.teste.patrimonio.controller.helpers.MarcaHelpers;
 import br.com.teste.patrimonio.exception.MarcaNotFoundException;
-import br.com.teste.patrimonio.model.entities.Marca;
+import br.com.teste.patrimonio.model.Marca;
 import br.com.teste.patrimonio.resource.model.MarcaResource;
+import br.com.teste.patrimonio.service.MarcaService;
 
 @RestController
 @RequestMapping(value = "/api")
 public class MarcaController {
 
 	@Autowired
-	private MarcaHelpers helpers;
+	private MarcaService helpers;
 
 	@PostMapping(path = "/marca/save")
 	public void novaMarca(@RequestBody MarcaResource marca) {

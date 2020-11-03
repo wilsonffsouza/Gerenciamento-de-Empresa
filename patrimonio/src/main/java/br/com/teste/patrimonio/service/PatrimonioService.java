@@ -1,22 +1,24 @@
-package br.com.teste.patrimonio.controller.helpers;
+package br.com.teste.patrimonio.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.teste.patrimonio.exception.PatrimonioNotFoundException;
 import br.com.teste.patrimonio.exception.PatrimonioResourceException;
-import br.com.teste.patrimonio.model.entities.Patrimonio;
-import br.com.teste.patrimonio.model.repositories.PatrimonioRepository;
+import br.com.teste.patrimonio.model.Patrimonio;
+import br.com.teste.patrimonio.repository.PatrimonioRepository;
 import br.com.teste.patrimonio.resource.model.PatrimonioResource;
 
-public class PatrimonioHelpers {
+@Service
+public class PatrimonioService {
 	
 	
 	
-	private static final Logger LOG = Logger.getLogger(PatrimonioHelpers.class);
+	private static final Logger LOG = Logger.getLogger(PatrimonioService.class);
 	
 	@Autowired
 	private PatrimonioRepository patrimonioRepository;

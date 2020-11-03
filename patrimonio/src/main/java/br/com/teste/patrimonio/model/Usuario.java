@@ -1,4 +1,4 @@
-package br.com.teste.patrimonio.model.entities;
+package br.com.teste.patrimonio.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,5 +25,7 @@ public class Usuario {
 	
 	@Column(nullable = false)
 	private String senha;
+	
+	private String token;
 
 }

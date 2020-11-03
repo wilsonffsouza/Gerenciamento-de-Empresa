@@ -1,22 +1,22 @@
-package br.com.teste.patrimonio.controller.helpers;
+package br.com.teste.patrimonio.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import br.com.teste.patrimonio.exception.MarcaNotFoundException;
 import br.com.teste.patrimonio.exception.MarcaResourceException;
-import br.com.teste.patrimonio.model.entities.Marca;
-import br.com.teste.patrimonio.model.repositories.MarcaRepository;
+import br.com.teste.patrimonio.model.Marca;
+import br.com.teste.patrimonio.repository.MarcaRepository;
 import br.com.teste.patrimonio.resource.model.MarcaResource;
 
-@Component
-public class MarcaHelpers {
+@Service
+public class MarcaService {
 	
-	private static final Logger LOG = Logger.getLogger(MarcaHelpers.class);
+	private static final Logger LOG = Logger.getLogger(MarcaService.class);
 	
 	@Autowired
 	private MarcaRepository marcaRepository;

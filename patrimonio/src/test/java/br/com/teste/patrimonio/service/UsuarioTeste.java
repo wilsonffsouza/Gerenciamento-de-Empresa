@@ -13,10 +13,9 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import br.com.teste.patrimonio.controller.helpers.UsuarioHelpers;
 import br.com.teste.patrimonio.exception.UsuarioNotFoundException;
-import br.com.teste.patrimonio.model.entities.Usuario;
-import br.com.teste.patrimonio.model.repositories.UsuarioRepository;
+import br.com.teste.patrimonio.model.Usuario;
+import br.com.teste.patrimonio.repository.UsuarioRepository;
 import br.com.teste.patrimonio.resource.model.UsuarioResource;
 
 @SpringBootTest
@@ -26,20 +25,20 @@ import br.com.teste.patrimonio.resource.model.UsuarioResource;
 public class UsuarioTeste {
 	
 	@Autowired
-	private UsuarioHelpers helpers;
+	private UsuarioService service;
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
 	@Test
 	public void cadastrarUsuario() {
-		UsuarioResource resource = new UsuarioResource("Teste", "teste@teste.com.br", "1234");
-			helpers.cadastrar(resource);
+		UsuarioResource resource = new UsuarioResource("Teste", "teste@teste.com.br", "1234", "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDQ0MzI4OTksInN1YiI6IlRlc3RlIEp3dCBBUEkiLCJleHAiOjE2MDQ0MzQ2OTl9.haMXJ96NnWnsPYz8q970fdytjkBYiQHcjovq835Yn6I");
+			service.cadastrar(resource);
 	}
 
 	@Test
 	public void buscarPorEmailTest() throws UsuarioNotFoundException {
-		Usuario usuario = helpers.buscarPorEmail("teste@teste.com.br");
+		Usuario usuario = service.buscarPorEmail("teste@teste.com.br");
 		assertEquals("teste@teste.com.br", usuario.getEmail());
 		assertEquals("teste", usuario.getNome());
 		assertEquals("1234", usuario.getSenha());
@@ -47,7 +46,7 @@ public class UsuarioTeste {
 	
 	@Test
 	public void deleterPorEmail() throws UsuarioNotFoundException {
-		helpers.deletarPorEmail("teste@teste.com.br");
+		service.deletarPorEmail("teste@teste.com.br");
 		
 		Optional<Usuario> optionalUsuario = usuarioRepository.findById("teste@teste.com.br");
 		
